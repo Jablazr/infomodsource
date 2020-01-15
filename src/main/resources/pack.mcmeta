@@ -1,7 +1,6 @@
 {
-    "pack": {
-        "description": "insanusnatura resources",
-        "pack_format": 3,
-        "_comment": ""
-    }
+  "pack": {
+    "description": "insanusnatura mod resources",
+    "pack_format": 3
+  }
 }

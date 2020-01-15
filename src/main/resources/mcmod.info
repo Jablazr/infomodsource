@@ -1,16 +1,21 @@
 [
-{
-  "modid": "insanusnatura",
-  "name": "Insanus Natura",
-  "description": "A very crazy mod!",
-  "version": "1.0",
-  "mcversion": "1.12.2",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["AceManFTW, Liipskii, Ichmaglatein"],
-  "credits": "The Forge and FML guys, for making this example!",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "insanusnatura",
+    "name": "Insanus Natura",
+    "description": "",
+    "version": "1.0.0",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "logoFile": "",
+    "mcversion": "1.12.2",
+    "url": "https://mcreator.net",
+    "updateUrl": "",
+    "authorList": [
+      "Jaime",
+      "MCreator"
+    ],
+    "dependencies": [],
+    "dependants": [],
+    "requiredMods": [],
+    "useDependencyInformation": "true"
+  }
 ]

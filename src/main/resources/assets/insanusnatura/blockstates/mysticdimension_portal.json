@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "insanusnatura:mysticdimension_portal_ew"
+    },
+    "axis=x": {
+      "model": "insanusnatura:mysticdimension_portal_ns"
+    },
+    "inventory": {
+      "model": "insanusnatura:mysticdimension_portal_ns"
+    }
+  }
+}
