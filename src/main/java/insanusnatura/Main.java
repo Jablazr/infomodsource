@@ -2,6 +2,7 @@ package insanusnatura;
 
 import insanusnatura.proxy.CommonProxy;
 import insanusnatura.util.Reference;
+import insanusnatura.util.handlers.RegistryHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,7 +20,9 @@ public class Main {
     public static CommonProxy proxy;
 
     @Mod.EventHandler
-    public static void preInit(FMLPreInitializationEvent event) {}
+    public static void preInit(FMLPreInitializationEvent event) {
+        RegistryHandler.otherRegistries();
+    }
 
     @Mod.EventHandler
     public static void init(FMLInitializationEvent event) {}
