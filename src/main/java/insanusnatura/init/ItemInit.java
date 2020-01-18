@@ -1,13 +1,13 @@
 package insanusnatura.init;
 
-import insanusnatura.objects.items.*;
+import insanusnatura.objects.items.ItemBase;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemInit {
-    public static List<Item> ITEMS = new ArrayList<Item>();
+    public static final List<Item> ITEMS = new ArrayList<Item>();
 
     public static Item MAGICAL_ORB = new BaseItem("magical_orb");
     public static Knife KNIFE = new Knife();

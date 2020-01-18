@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "insanusnatura:blocks/mystic_dirt",
-    "up": "insanusnatura:blocks/mystic_grass_top",
-    "north": "insanusnatura:blocks/mystic_grass_side",
-    "east": "insanusnatura:blocks/mystic_grass_side",
-    "south": "insanusnatura:blocks/mystic_grass_side",
-    "west": "insanusnatura:blocks/mystic_grass_side",
-    "particle": "insanusnatura:blocks/mystic_dirt"
+    "down": "insanusnatura:blocks/mysticdirtbase",
+    "up": "insanusnatura:blocks/mysticblockgrass",
+    "north": "insanusnatura:blocks/mysticdirtside",
+    "east": "insanusnatura:blocks/mysticdirtside",
+    "south": "insanusnatura:blocks/mysticdirtside",
+    "west": "insanusnatura:blocks/mysticdirtside",
+    "particle": "insanusnatura:blocks/mysticdirtbase"
   }
 }

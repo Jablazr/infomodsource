@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "insanusnatura:blocks/mystic_bedrock",
-    "particle": "insanusnatura:blocks/mystic_bedrock"
+    "all": "insanusnatura:blocks/mysticbedrock",
+    "particle": "insanusnatura:blocks/mysticbedrock"
   }
 }

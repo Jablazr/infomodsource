@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "insanusnatura:blocks/mystic_bedrock",
-    "portal": "insanusnatura:blocks/mystic_bedrock"
+    "particle": "insanusnatura:blocks/mysticbedrock",
+    "portal": "insanusnatura:blocks/mysticbedrock"
   },
   "elements": [
     {
