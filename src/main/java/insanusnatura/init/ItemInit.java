@@ -1,6 +1,6 @@
 package insanusnatura.init;
 
-import insanusnatura.objects.items.ItemBase;
+import insanusnatura.objects.items.*;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
@@ -17,4 +17,6 @@ public class ItemInit {
     public static BlankPrint BLANK_PRINT = new BlankPrint();
     public static MusicalPrint MUSICAL_PRINT = new MusicalPrint();
     public static MysticalDust MYSTICAL_DUST = new MysticalDust();
+    public static MysticalFlute MYSTICAL_FLUTE = new MysticalFlute();
+
 }

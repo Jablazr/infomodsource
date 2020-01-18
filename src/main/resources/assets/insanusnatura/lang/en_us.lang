@@ -1,24 +1,7 @@
-
 tile.mysticstone.name=Mystic Stone
 itemGroup.tabinsanusnaturatab=Insanus Natura
-
-
-tile.mysticstone.name=Mystic Stone
-
 tile.mysticgrass.name=Mystic Grass
+item.mysticdimension.name=Mystic Igniter
 tile.mysticbedrock.name=Mystic Bedrock
 tile.mysticdirt.name=Mystic Dirt
 tile.mysticcobblestone.name=Mystic Cobblestone
-
-
-tile.magical_block.name=Magical Block
-item.magical_orb.name=Magical Orb
-
-item.knife.name=Knife
-item.magentafeather.name=Magenta Feather
-item.tube.name=Tube
-item.flute.name=Flute
-item.blankprint.name=Blank Print
-item.musicalprint.name=Musical Print
-item.mysticaldust.name=Mystical Dust
-
