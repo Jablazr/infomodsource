@@ -1,9 +1,7 @@
 tile.mysticstone.name=Mystic Stone
-itemGroup.insanusnatura=Insanus Natura
+itemGroup.tabinsanusnaturatab=Insanus Natura
 tile.mysticgrass.name=Mystic Grass
 item.mysticdimension.name=Mystic Igniter
 tile.mysticbedrock.name=Mystic Bedrock
 tile.mysticdirt.name=Mystic Dirt
 tile.mysticcobblestone.name=Mystic Cobblestone
-tile.magical_block.name=Magical Block
-item.magical_orb.name=Magical Orb
