@@ -10,19 +10,21 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class MysticDirt extends Block implements IHasModel {
-    public MysticDirt() {
-        super(Material.GROUND);
-        setRegistryName("mysticdirt");
-        setUnlocalizedName("mysticdirt");
+public class MysticGrass extends Block implements IHasModel {
+    public MysticGrass() {
+        super(Material.GRASS);
+        setRegistryName("mysticgrass");
+        setUnlocalizedName("mysticgrass");
         setSoundType(SoundType.GROUND);
         setHarvestLevel("shovel", 0);
-        setHardness(0.5F);
-        setResistance(2.5F);
+        setHardness(0.6F);
+        setResistance(3F);
         setLightLevel(0F);
         setLightOpacity(0);
         setCreativeTab(Main.tab);
@@ -35,6 +37,11 @@ public class MysticDirt extends Block implements IHasModel {
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
                                    net.minecraftforge.common.IPlantable plantable) {
         return true;
+    }
+
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        drops.add(new ItemStack(BlockInit.MYSTIC_DIRT, 1));
     }
 
     @Override

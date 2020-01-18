@@ -1,12 +1,7 @@
 {
-  "parent": "block/cube",
+  "parent": "block/cube_all",
   "textures": {
-    "down": "insanusnatura:blocks/mysticdirtbase",
-    "up": "insanusnatura:blocks/mysticdirtbase",
-    "north": "insanusnatura:blocks/mysticdirtbase",
-    "east": "insanusnatura:blocks/mysticdirtbase",
-    "south": "insanusnatura:blocks/mysticdirtbase",
-    "west": "insanusnatura:blocks/mysticdirtbase",
-    "particle": "insanusnatura:blocks/mysticdirtbase"
+    "all": "insanusnatura:blocks/mystic_dirt",
+    "particle": "insanusnatura:blocks/mystic_dirt"
   }
 }

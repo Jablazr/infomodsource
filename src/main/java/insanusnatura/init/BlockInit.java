@@ -1,9 +1,13 @@
 package insanusnatura.init;
 
 
+
 import insanusnatura.objects.blocks.BlockSaplingMagical;
 import insanusnatura.objects.blocks.DirtCustom;
 import insanusnatura.objects.blocks.OreCustom;
+
+import insanusnatura.objects.blocks.*;
+
 import net.minecraft.block.Block;
 import insanusnatura.objects.blocks.MysticDirt;
 
@@ -27,5 +31,9 @@ public class BlockInit {
 
 
     public static final MysticDirt MYSTIC_DIRT = new MysticDirt();
+    public static final MysticGrass MYSTIC_GRASS = new MysticGrass();
+    public static final MysticStone MYSTIC_STONE = new MysticStone();
+    public static final MysticCobblestone MYSTIC_COBBLESTONE = new MysticCobblestone();
+    public static final MysticBedrock MYSTIC_BEDROCK = new MysticBedrock();
 
 }
