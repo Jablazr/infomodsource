@@ -12,8 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
 public class BaseBlock extends Block implements IHasModel {
-    public BaseBlock(String name, Material material)
-    {
+    public BaseBlock(String name, Material material) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
