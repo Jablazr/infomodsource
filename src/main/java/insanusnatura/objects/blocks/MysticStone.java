@@ -10,19 +10,20 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class MysticDirt extends Block implements IHasModel {
-    public MysticDirt() {
-        super(Material.GROUND);
-        setRegistryName("mysticdirt");
-        setUnlocalizedName("mysticdirt");
-        setSoundType(SoundType.GROUND);
-        setHarvestLevel("shovel", 0);
-        setHardness(0.5F);
-        setResistance(2.5F);
+public class MysticStone extends Block implements IHasModel {
+    public MysticStone() {
+        super(Material.ROCK);
+        setRegistryName("mysticstone");
+        setUnlocalizedName("mysticstone");
+        setSoundType(SoundType.STONE);
+        setHarvestLevel("pickaxe", 1);
+        setHardness(1.5F);
+        setResistance(30F);
         setLightLevel(0F);
         setLightOpacity(0);
         setCreativeTab(Main.tab);
@@ -32,9 +33,8 @@ public class MysticDirt extends Block implements IHasModel {
     }
 
     @Override
-    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
-                                   net.minecraftforge.common.IPlantable plantable) {
-        return true;
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        drops.add(new ItemStack(BlockInit.MYSTIC_COBBLESTONE, 1));
     }
 
     @Override

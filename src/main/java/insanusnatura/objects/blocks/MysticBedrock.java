@@ -8,33 +8,39 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
-public class MysticDirt extends Block implements IHasModel {
-    public MysticDirt() {
-        super(Material.GROUND);
-        setRegistryName("mysticdirt");
-        setUnlocalizedName("mysticdirt");
-        setSoundType(SoundType.GROUND);
-        setHarvestLevel("shovel", 0);
-        setHardness(0.5F);
-        setResistance(2.5F);
+import java.util.Random;
+
+public class MysticBedrock extends Block implements IHasModel {
+    public MysticBedrock() {
+        super(Material.ROCK);
+        setRegistryName("mysticbedrock");
+        setUnlocalizedName("mysticbedrock");
+        setSoundType(SoundType.GLASS);
+        setHardness(10000F);
+        setResistance(10000F);
         setLightLevel(0F);
         setLightOpacity(0);
         setCreativeTab(Main.tab);
+        setBlockUnbreakable();
 
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     @Override
-    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction,
-                                   net.minecraftforge.common.IPlantable plantable) {
-        return true;
+    public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+        return false;
+    }
+
+    @Override
+    public int quantityDropped(Random random) {
+        return 0;
     }
 
     @Override

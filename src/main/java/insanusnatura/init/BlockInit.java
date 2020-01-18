@@ -1,7 +1,6 @@
 package insanusnatura.init;
 
-import insanusnatura.objects.blocks.BaseBlock;
-import insanusnatura.objects.blocks.MysticDirt;
+import insanusnatura.objects.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -13,4 +12,8 @@ public class BlockInit {
 
     public static final Block MAGICAL_BLOCK = new BaseBlock("magical_block", Material.PORTAL);
     public static final MysticDirt MYSTIC_DIRT = new MysticDirt();
+    public static final MysticGrass MYSTIC_GRASS = new MysticGrass();
+    public static final MysticStone MYSTIC_STONE = new MysticStone();
+    public static final MysticCobblestone MYSTIC_COBBLESTONE = new MysticCobblestone();
+    public static final MysticBedrock MYSTIC_BEDROCK = new MysticBedrock();
 }
