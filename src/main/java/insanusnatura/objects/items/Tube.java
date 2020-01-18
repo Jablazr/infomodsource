@@ -5,10 +5,10 @@ import insanusnatura.init.ItemInit;
 import insanusnatura.util.interfaces.IHasModel;
 import net.minecraft.item.Item;
 
-public class BaseItem extends Item implements IHasModel {
-    public BaseItem(String name) {
-        setUnlocalizedName(name);
-        setRegistryName(name);
+public class Tube extends Item implements IHasModel {
+    public Tube() {
+        setUnlocalizedName("tube");
+        setRegistryName("tube");
         setCreativeTab(Main.tab);
 
         ItemInit.ITEMS.add(this);
