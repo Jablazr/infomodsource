@@ -9,6 +9,7 @@ import java.util.List;
 public class ItemInit {
     public static final List<Item> ITEMS = new ArrayList<Item>();
 
+
     public static Item MAGICAL_ORB = new BaseItem("magical_orb");
     public static Knife KNIFE = new Knife();
     public static MagentaFeather MAGENTA_FEATHER = new MagentaFeather();
@@ -18,5 +19,6 @@ public class ItemInit {
     public static MusicalPrint MUSICAL_PRINT = new MusicalPrint();
     public static MysticalDust MYSTICAL_DUST = new MysticalDust();
     public static MysticalFlute MYSTICAL_FLUTE = new MysticalFlute();
+
 
 }
