@@ -35,8 +35,9 @@ public class WorldGenTreesMagical extends WorldGenAbstractTree {
 
                 if (state.getBlock().canSustainPlant(state, parWorld, parBlockPos.down(), EnumFacing.UP, (IPlantable) Blocks.SAPLING) && parBlockPos.getY() < parWorld.getHeight() - minHeight - 1) {
                     state.getBlock().onPlantGrow(state, parWorld, parBlockPos.down(), parBlockPos);
-                    generateLeaves(parWorld, parBlockPos, minHeight, parRandom);
-                    generateTrunk(parWorld, parBlockPos, minHeight);
+                    //generateLeaves(parWorld, parBlockPos, minHeight, parRandom);
+                    //generateTrunk(parWorld, parBlockPos, minHeight);
+                    generateTree(parWorld,parBlockPos,minHeight,parRandom);
                 }else
                 {
                     return false;
@@ -146,6 +147,87 @@ public class WorldGenTreesMagical extends WorldGenAbstractTree {
 
 
 
+    }
+
+
+    private void generateTree(World parWorld, BlockPos parBlockPos, int height, Random parRandom)
+    {
+        int changeX = 0;
+        int changeZ = 0;
+
+        for(int stage = 0;stage <height;stage++)
+        {
+             changeX = parRandom.nextInt(2)-1;
+             changeZ = parRandom.nextInt(2)-1;
+
+
+            BlockPos blockPos = new BlockPos(parBlockPos.getX()+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()+changeZ);
+            IBlockState state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateWood);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()+1+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()+1+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()+1+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()+1+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()-1+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()+1+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()-1+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()-1+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()+1+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()-1+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()-1+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            blockPos = new BlockPos(parBlockPos.getX()-1+changeX,parBlockPos.getY()+stage,parBlockPos.getZ()+changeZ);
+            state = parWorld.getBlockState(blockPos);
+
+            if (state.getBlock().isAir(state, parWorld, blockPos) || state.getBlock().isLeaves(state, parWorld, blockPos)) {
+                setBlockAndNotifyAdequately(parWorld, blockPos, blockStateLeaves);
+            }
+
+            changeX = parRandom.nextInt(2)-1;
+            changeZ = parRandom.nextInt(2)-1;
+
+        }
     }
 }
 
