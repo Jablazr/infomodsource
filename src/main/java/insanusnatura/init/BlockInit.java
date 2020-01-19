@@ -19,7 +19,7 @@ public class BlockInit {
     public static final Block MAGICAL_SAPLING = new BlockSaplingMagical("magical_sapling");
     public static final Block MAGICAL_LEAVES = new MagicalLeaves("magical_leaves");
     public static final Block MAGICAL_LOG = new MagicalLog("magical_log");
-    public static final Block MAGICAL_PLANK = new BlockSaplingMagical("magical_sapling");
+    public static final Block MAGICAL_PLANK = new MagicalPlanks("magical_planks");
 
 
 

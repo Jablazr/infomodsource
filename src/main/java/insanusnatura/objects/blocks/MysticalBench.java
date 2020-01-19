@@ -3,6 +3,7 @@ package insanusnatura.objects.blocks;
 import insanusnatura.Main;
 import insanusnatura.init.BlockInit;
 import insanusnatura.init.ItemInit;
+//import insanusnatura.objects.containers.MysticalBenchContainer;
 import insanusnatura.objects.containers.MysticalBenchContainer;
 import insanusnatura.util.interfaces.IHasModel;
 import net.minecraft.block.BlockWorkbench;

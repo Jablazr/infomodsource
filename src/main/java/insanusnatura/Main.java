@@ -1,10 +1,11 @@
 package insanusnatura;
 
+
 import insanusnatura.objects.tabs.InsanusNaturaTab;
 import insanusnatura.proxy.CommonProxy;
 import insanusnatura.util.Reference;
 
-import insanusnatura.util.handlers.RegistryHandler;
+
 import net.minecraft.creativetab.CreativeTabs;
 
 
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION,
+
         acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS)
 public class Main {
 
@@ -35,8 +37,10 @@ public class Main {
     }
 
     @Mod.EventHandler
-    public static void init(FMLInitializationEvent event) {}
+    public static void init(FMLInitializationEvent event) {
+    }
 
     @Mod.EventHandler
-    public static void postInit(FMLPostInitializationEvent event) {}
+    public static void postInit(FMLPostInitializationEvent event) {
+    }
 }
