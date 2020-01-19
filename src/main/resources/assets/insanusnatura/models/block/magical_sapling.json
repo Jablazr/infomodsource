@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "insanusnatura:blocks/magical_sapling",
+    "particle": "insanusnatura:blocks/magical_sapling"
+  }
+}
