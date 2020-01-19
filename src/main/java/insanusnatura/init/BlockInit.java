@@ -16,5 +16,5 @@ public class BlockInit {
     public static final MysticStone MYSTIC_STONE = new MysticStone();
     public static final MysticCobblestone MYSTIC_COBBLESTONE = new MysticCobblestone();
     public static final MysticBedrock MYSTIC_BEDROCK = new MysticBedrock();
-    public static final MysticalBench MYSTICAL_BENCH = new MysticalBench();
+    public static final MysticalWorkbench MYSTICAL_WORKBENCH = new MysticalWorkbench();
 }

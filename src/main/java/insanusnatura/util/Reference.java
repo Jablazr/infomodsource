@@ -11,4 +11,5 @@ public class Reference {
     public static final String CLIENT_PROXY_CLASS = "insanusnatura.proxy.ClientProxy";
     public static final String COMMON_PROXY_CLASS = "insanusnatura.proxy.CommonProxy";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("insanusnatura:a");
+    public static final int GUI_MYSTICAL_WORKBENCH = 0;
 }

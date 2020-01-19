@@ -1,11 +1,13 @@
 itemGroup.insanusnatura=Insanus Natura
 
+container.mysticalworkbench=Mystical Workbench
+
 tile.mysticstone.name=Mystic Stone
 tile.mysticgrass.name=Mystic Grass
 tile.mysticbedrock.name=Mystic Bedrock
 tile.mysticdirt.name=Mystic Dirt
 tile.mysticcobblestone.name=Mystic Cobblestone
-tile.mysticalbench.name=Mystical Bench
+tile.mysticalworkbench.name=Mystical Workbench
 
 tile.magical_block.name=Magical Block
 item.magical_orb.name=Magical Orb

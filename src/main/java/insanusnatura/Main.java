@@ -3,6 +3,7 @@ package insanusnatura;
 import insanusnatura.objects.tabs.InsanusNaturaTab;
 import insanusnatura.proxy.CommonProxy;
 import insanusnatura.util.Reference;
+import insanusnatura.util.handlers.RegistryHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -25,11 +26,16 @@ public class Main {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
+        RegistryHandler.preInitRegistries();
     }
 
     @Mod.EventHandler
-    public static void init(FMLInitializationEvent event) {}
+    public static void init(FMLInitializationEvent event) {
+        RegistryHandler.initRegistries();
+    }
 
     @Mod.EventHandler
-    public static void postInit(FMLPostInitializationEvent event) {}
+    public static void postInit(FMLPostInitializationEvent event) {
+        RegistryHandler.postInitRegistries();
+    }
 }
