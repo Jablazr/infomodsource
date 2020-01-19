@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "insanusnatura:blocks/magical_log_top",
+    "up": "insanusnatura:blocks/magical_log_top",
+    "north": "insanusnatura:blocks/magical_log",
+    "east": "insanusnatura:blocks/magical_log",
+    "south": "insanusnatura:blocks/magical_log",
+    "west": "insanusnatura:blocks/magical_log",
+    "particle": "insanusnatura:blocks/magical_log"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "normal": {
+      "model": "insanusnatura:magical_log"
+    },
+    "facing=south": {
+      "model": "insanusnatura:magical_log"
+    },
+    "facing=north": {
+      "model": "insanusnatura:magical_log"
+    },
+    "facing=east": {
+      "model": "insanusnatura:magical_log",
+      "x": 90
+    },
+    "facing=west": {
+      "model": "insanusnatura:magical_log",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "insanusnatura:magical_log",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down": {
+      "model": "insanusnatura:magical_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
