@@ -15,6 +15,9 @@ public class BlockInit {
 
     public static final Block MAGICAL_BLOCK = new OreCustom("magical_block");
     public static final Block MAGICAL_DIRT = new DirtCustom("magical_dirt");
+    public static final Block MAGICAL_GRASS = new MagicalGrass("magical_grass");
+    public static final Block MAGICAL_STONE = new DirtCustom("magical_stone");
+    public static final Block MAGICAL_COBBLESTONE = new DirtCustom("magical_cobblestone");
 
     public static final Block MAGICAL_SAPLING = new BlockSaplingMagical("magical_sapling");
     public static final Block MAGICAL_LEAVES = new MagicalLeaves("magical_leaves");

@@ -1,9 +1,14 @@
 package insanusnatura.util.handlers;
 
 import insanusnatura.Main;
+import insanusnatura.init.BiomeInit;
 import insanusnatura.init.BlockInit;
 import insanusnatura.init.ItemInit;
 import insanusnatura.util.interfaces.IHasModel;
+import insanusnatura.world.gen.MagicalTreeGen;
+import insanusnatura.world.gen.WorldGenCustomOres;
+import insanusnatura.world.gen.WorldGenTreesMagical;
+import insanusnatura.world.gen.biomes.MagicalBiome;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -11,6 +16,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -49,5 +55,12 @@ public class RegistryHandler {
 
     public static void postInitRegistries() {
 
+    }
+
+    public static void otherRegistries()
+    {
+        //GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
+        GameRegistry.registerWorldGenerator(new MagicalTreeGen(),0);
+        BiomeInit.registerBiomes();
     }
 }

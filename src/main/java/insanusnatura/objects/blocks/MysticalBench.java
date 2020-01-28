@@ -79,7 +79,7 @@ public class MysticalBench extends BlockWorkbench implements IHasModel {
          */
         public ITextComponent getDisplayName()
         {
-            return new TextComponentTranslation(BlockInit.MYSTICAL_BENCH.getUnlocalizedName() + ".name", new Object[0]);
+            return new TextComponentTranslation(BlockInit.MYSTICAL_WORKBENCH.getUnlocalizedName() + ".name", new Object[0]);
         }
 
         public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)

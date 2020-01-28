@@ -28,6 +28,7 @@ public class Main {
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         RegistryHandler.preInitRegistries();
+        RegistryHandler.otherRegistries();
     }
 
     @Mod.EventHandler
