@@ -28,12 +28,12 @@ public class ContainerMysticalWorkbench extends Container {
         this.addSlotToContainer(new SlotMysticalWorkbenchResult(tileEntity, tileEntity, 4, 123, 35));
 
         // Hotbar slots
-        for(int x = 0; x < hotbar_slots; x++)
+        for (int x = 0; x < hotbar_slots; x++)
             this.addSlotToContainer(new Slot(inventoryPlayer, x, 8 + x * 18, 155));
 
         // Inventory slots
-        for(int y = 0; y < inventory_rows; y++)
-            for(int x = 0; x < inventory_slots_per_row; x++)
+        for (int y = 0; y < inventory_rows; y++)
+            for (int x = 0; x < inventory_slots_per_row; x++)
                 this.addSlotToContainer(new Slot(inventoryPlayer, x + hotbar_slots + y * 9, 8 + x * 18, 97 + y * 18));
     }
 
@@ -44,7 +44,7 @@ public class ContainerMysticalWorkbench extends Container {
 
     @Override
     public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
-        if(clickTypeIn == ClickType.QUICK_MOVE){
+        if (clickTypeIn == ClickType.QUICK_MOVE) {
             return ItemStack.EMPTY;
         } else {
             return super.slotClick(slotId, dragType, clickTypeIn, player);
