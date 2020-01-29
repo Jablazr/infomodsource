@@ -1,12 +1,9 @@
 package insanusnatura.objects.tileentities;
 
-import insanusnatura.init.ItemInit;
-import insanusnatura.objects.blocks.MysticalWorkbench;
 import insanusnatura.objects.recipes.MysticalWorkbenchRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -18,7 +15,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import javax.annotation.Nullable;
 
 public class TileEntityMysticalWorkbench extends TileEntity implements IInventory, ITickable {
-    private NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
+    public NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
     private String customName;
 
     @Override
@@ -80,7 +77,7 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
-        if(index == 3) return false;
+        if(index == 4) return false;
         else return true;
     }
 
@@ -120,22 +117,20 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
         return "insanusnatura:mysticalworkbench";
     }
 
-    private boolean canCraft() {
-        if(MysticalWorkbenchRecipes.getInstance()
-                .getMysticalWorkbenchResult(this.inventory.get(0), this.inventory.get(1), this.inventory.get(2)) != ItemStack.EMPTY) {
-            return true;
+    private void craft() {
+        if(this.inventory.get(4).isEmpty()) {
+            if(MysticalWorkbenchRecipes.getInstance()
+                    .getMysticalWorkbenchResult(this.inventory.get(0),
+                            this.inventory.get(1),
+                            this.inventory.get(2),
+                            this.inventory.get(3)) != ItemStack.EMPTY) {
+                this.inventory.set(4, MysticalWorkbenchRecipes.getInstance()
+                        .getMysticalWorkbenchResult(this.inventory.get(0),
+                                this.inventory.get(1),
+                                this.inventory.get(2),
+                                this.inventory.get(3)));
+            }
         }
-        return false;
-    }
-
-    public void craftItem() {
-        if(this.inventory.get(3).isEmpty()) {
-            this.inventory.set(3, MysticalWorkbenchRecipes.getInstance()
-                    .getMysticalWorkbenchResult(this.inventory.get(0), this.inventory.get(1), this.inventory.get(2)));
-        }
-        this.inventory.get(0).shrink(1);
-        this.inventory.get(1).shrink(1);
-        this.inventory.get(2).shrink(1);
     }
 
     @Nullable
@@ -147,9 +142,7 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
     @Override
     public void update() {
         if(!this.world.isRemote) {
-            if(this.canCraft()) {
-                this.craftItem();
-            }
+            craft();
         }
     }
 }

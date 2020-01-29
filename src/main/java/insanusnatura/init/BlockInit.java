@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockInit {
-
-
     public static final List<Block> BLOCKS = new ArrayList<Block>();
 
     public static final Block MAGICAL_BLOCK = new OreCustom("magical_block");
