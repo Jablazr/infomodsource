@@ -6,9 +6,6 @@ import insanusnatura.init.BlockInit;
 import insanusnatura.init.ItemInit;
 import insanusnatura.util.interfaces.IHasModel;
 import insanusnatura.world.gen.MagicalTreeGen;
-import insanusnatura.world.gen.WorldGenCustomOres;
-import insanusnatura.world.gen.WorldGenTreesMagical;
-import insanusnatura.world.gen.biomes.MagicalBiome;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -59,7 +56,6 @@ public class RegistryHandler {
 
     public static void otherRegistries()
     {
-        //GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
         GameRegistry.registerWorldGenerator(new MagicalTreeGen(),0);
         BiomeInit.registerBiomes();
     }

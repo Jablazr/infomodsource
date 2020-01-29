@@ -1,6 +1,6 @@
 package insanusnatura.init;
 
-import insanusnatura.world.gen.biomes.MagicalBiome;
+import insanusnatura.world.biomes.MagicalBiome;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeDictionary;
@@ -11,7 +11,7 @@ public class BiomeInit {
     public static final Biome MAGIC = new MagicalBiome();
     public static void registerBiomes()
     {
-        initBiome(MAGIC, "Magic", BiomeManager.BiomeType.COOL, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.DRY);
+        initBiome(MAGIC, "Magic", BiomeManager.BiomeType.WARM, Type.FOREST, Type.FOREST, Type.MAGICAL);
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, Type... types)
@@ -19,7 +19,7 @@ public class BiomeInit {
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);
         BiomeDictionary.addTypes(biome, types);
-        BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, 10));
+        BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, 100));
         BiomeManager.addSpawnBiome(biome);
         return biome;
     }

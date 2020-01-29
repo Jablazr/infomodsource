@@ -14,9 +14,9 @@ public class ContainerMysticalWorkbench extends Container {
         this.tileEntity = tileEntity;
 
         this.addSlotToContainer(new Slot(tileEntity, 0, 30, 31));
-        this.addSlotToContainer(new Slot(tileEntity, 1, 48, 31));
-        this.addSlotToContainer(new Slot(tileEntity, 2, 66, 31));
-        this.addSlotToContainer(new SlotMysticalWorkbenchResult(inventoryPlayer.player, tileEntity, 3, 124, 31));
+        this.addSlotToContainer(new Slot(tileEntity, 0, 48, 31));
+        this.addSlotToContainer(new Slot(tileEntity, 0, 66, 31));
+        this.addSlotToContainer(new SlotMysticalWorkbenchResult(inventoryPlayer.player, tileEntity, 0, 124, 31));
 
         for(int y = 0; y < 3; y++)
             for(int x = 0; x < 9; x++)
