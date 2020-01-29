@@ -9,8 +9,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiMysticalWorkbench extends GuiContainer {
-    private static final ResourceLocation TEXTURES = new ResourceLocation(
-            Reference.MOD_ID + ":textures/gui/gui_mystical_workbench.png");
+    private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/gui/gui_mystical_workbench.png");
     private static final int xSize = 175;
     private static final int ySize = 178;
     private final InventoryPlayer inventoryPlayer;
@@ -20,6 +19,13 @@ public class GuiMysticalWorkbench extends GuiContainer {
         super(new ContainerMysticalWorkbench(inventoryPlayer, tileEntity));
         this.inventoryPlayer = inventoryPlayer;
         this.tileEntity = tileEntity;
+    }
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        this.drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
+        this.renderHoveredToolTip(mouseX, mouseY);
     }
 
     @Override

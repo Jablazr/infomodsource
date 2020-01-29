@@ -8,9 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class SlotMysticalWorkbenchResult extends Slot {
     private TileEntityMysticalWorkbench tileEntity;
-
-    public SlotMysticalWorkbenchResult(TileEntityMysticalWorkbench tileEntity, IInventory inventoryIn, int index,
-            int xPosition, int yPosition) {
+    public SlotMysticalWorkbenchResult(TileEntityMysticalWorkbench tileEntity, IInventory inventoryIn, int index, int xPosition, int yPosition) {
         super(inventoryIn, index, xPosition, yPosition);
         this.tileEntity = tileEntity;
     }

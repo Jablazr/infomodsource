@@ -16,7 +16,7 @@ public class WorldGenTreesMagical extends WorldGenAbstractTree {
 
     private IBlockState blockStateWood = BlockInit.MAGICAL_LOG.getDefaultState();
     private IBlockState blockStateLeaves = BlockInit.MAGICAL_LEAVES.getDefaultState();
-    private final int minTreeHeight = 30;
+    private final int minTreeHeight = 10;
 
 
     public WorldGenTreesMagical(boolean parShouldNotify) {

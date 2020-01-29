@@ -6,15 +6,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class ContainerMysticalWorkbench extends Container {
     private int hotbar_slots = 9;
     private int inventory_rows = 3;
     private int inventory_slots_per_row = 9;
-    private int custom_slots = 5;
-    private int total_inventory_slots = inventory_slots_per_row * inventory_rows;
+
     private final TileEntityMysticalWorkbench tileEntity;
 
     public ContainerMysticalWorkbench(InventoryPlayer inventoryPlayer, TileEntityMysticalWorkbench tileEntity) {
@@ -28,12 +30,12 @@ public class ContainerMysticalWorkbench extends Container {
         this.addSlotToContainer(new SlotMysticalWorkbenchResult(tileEntity, tileEntity, 4, 123, 35));
 
         // Hotbar slots
-        for (int x = 0; x < hotbar_slots; x++)
+        for(int x = 0; x < hotbar_slots; x++)
             this.addSlotToContainer(new Slot(inventoryPlayer, x, 8 + x * 18, 155));
 
         // Inventory slots
-        for (int y = 0; y < inventory_rows; y++)
-            for (int x = 0; x < inventory_slots_per_row; x++)
+        for(int y = 0; y < inventory_rows; y++)
+            for(int x = 0; x < inventory_slots_per_row; x++)
                 this.addSlotToContainer(new Slot(inventoryPlayer, x + hotbar_slots + y * 9, 8 + x * 18, 97 + y * 18));
     }
 
@@ -44,10 +46,24 @@ public class ContainerMysticalWorkbench extends Container {
 
     @Override
     public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
-        if (clickTypeIn == ClickType.QUICK_MOVE) {
+        if(clickTypeIn == ClickType.QUICK_MOVE){
             return ItemStack.EMPTY;
         } else {
             return super.slotClick(slotId, dragType, clickTypeIn, player);
         }
+    }
+
+    @Override
+    public void onContainerClosed(EntityPlayer playerIn) {
+        super.onContainerClosed(playerIn);
+        if (!this.tileEntity.getWorld().isRemote)
+        {
+            this.clearContainer(playerIn, this.tileEntity.getWorld(), this.tileEntity);
+        }
+    }
+
+    @Override
+    protected void clearContainer(EntityPlayer playerIn, World worldIn, IInventory inventoryIn) {
+        super.clearContainer(playerIn, worldIn, inventoryIn);
     }
 }
