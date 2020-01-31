@@ -24,6 +24,8 @@ public class BlockInit {
     public static final Block MAGICAL_LOG = new MagicalLog("magical_log");
     public static final Block MAGICAL_PLANK = new MagicalPlanks("magical_planks");
 
+    public static final Block SHINY_ORE = new ShinyOre("shiny_ore");
+
 
 
 

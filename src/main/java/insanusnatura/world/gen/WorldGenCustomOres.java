@@ -1,5 +1,6 @@
 package insanusnatura.world.gen;
 
+import insanusnatura.init.BiomeInit;
 import insanusnatura.init.BlockInit;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -17,10 +18,12 @@ import java.util.Random;
 public class WorldGenCustomOres implements IWorldGenerator {
 
     private WorldGenerator ore_magical;
+    private WorldGenerator ore_shiny;
 
     public WorldGenCustomOres()
     {
-        ore_magical = new WorldGenMinable(BlockInit.MAGICAL_BLOCK.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));
+        //ore_magical = new WorldGenMinable(BlockInit.MAGICAL_BLOCK.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));
+        ore_shiny = new WorldGenMinable(BlockInit.SHINY_ORE.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));
     }
 
     @Override
@@ -29,7 +32,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
         switch(world.provider.getDimension())
         {
             case 0:
-                runGenerator(ore_magical, world, random, chunkX, chunkZ, 90, 0, 100);
+                //runGenerator(ore_magical, world, random, chunkX, chunkZ, 90, 0, 100);
+                runGenerator(ore_shiny, world, random, chunkX, chunkZ, 90, 0, 255);
 
                 break;
         }
@@ -46,7 +50,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
             int y = minHeight + rand.nextInt(heightDiff);
             int z = chunkZ * 16 + rand.nextInt(16);
 
-            if(world.getBiome(new BlockPos(x,y,z))==Biome.getBiome(2)){
+
+            if(Biome.getIdForBiome(world.getBiome(new BlockPos(x,y,z)))==Biome.getIdForBiome(BiomeInit.MAGIC))
+            {
                 gen.generate(world,rand,new BlockPos(x,y,z));
             }
 
