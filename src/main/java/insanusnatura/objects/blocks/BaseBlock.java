@@ -7,9 +7,12 @@ import insanusnatura.objects.tabs.InsanusNaturaTab;
 import insanusnatura.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+
+import java.util.Random;
 
 public class BaseBlock extends Block implements IHasModel {
     public BaseBlock(String name, Material material) {

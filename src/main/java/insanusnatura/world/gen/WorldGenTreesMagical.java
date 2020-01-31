@@ -1,8 +1,6 @@
 package insanusnatura.world.gen;
 
 import insanusnatura.init.BlockInit;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -18,7 +16,7 @@ public class WorldGenTreesMagical extends WorldGenAbstractTree {
 
     private IBlockState blockStateWood = BlockInit.MAGICAL_LOG.getDefaultState();
     private IBlockState blockStateLeaves = BlockInit.MAGICAL_LEAVES.getDefaultState();
-    private final int minTreeHeight = 30;
+    private final int minTreeHeight = 10;
 
 
     public WorldGenTreesMagical(boolean parShouldNotify) {
