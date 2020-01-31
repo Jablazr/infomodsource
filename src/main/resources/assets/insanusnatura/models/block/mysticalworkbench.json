@@ -3,9 +3,9 @@
   "textures": {
     "down": "insanusnatura:blocks/mystical_workbench_bottom",
     "up": "insanusnatura:blocks/mystical_workbench_top",
-    "north": "insanusnatura:blocks/mystical_workbench_side",
+    "north": "insanusnatura:blocks/mystical_workbench_front",
     "east": "insanusnatura:blocks/mystical_workbench_side",
-    "south": "insanusnatura:blocks/mystical_workbench_side",
+    "south": "insanusnatura:blocks/mystical_workbench_front",
     "west": "insanusnatura:blocks/mystical_workbench_side",
     "particle": "insanusnatura:blocks/mystical_workbench_bottom"
   }

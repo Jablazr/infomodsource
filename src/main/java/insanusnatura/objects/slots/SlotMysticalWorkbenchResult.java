@@ -1,16 +1,17 @@
 package insanusnatura.objects.slots;
 
-import insanusnatura.objects.tileentities.TileEntityMysticalWorkbench;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class SlotMysticalWorkbenchResult extends Slot {
-    private TileEntityMysticalWorkbench tileEntity;
-    public SlotMysticalWorkbenchResult(TileEntityMysticalWorkbench tileEntity, IInventory inventoryIn, int index, int xPosition, int yPosition) {
+    private final EntityPlayer player;
+    private int removeCount;
+
+    public SlotMysticalWorkbenchResult(EntityPlayer player, IInventory inventoryIn, int index, int xPosition, int yPosition) {
         super(inventoryIn, index, xPosition, yPosition);
-        this.tileEntity = tileEntity;
+        this.player = player;
     }
 
     @Override
@@ -20,11 +21,14 @@ public class SlotMysticalWorkbenchResult extends Slot {
 
     @Override
     public ItemStack onTake(EntityPlayer thePlayer, ItemStack stack) {
-        tileEntity.inventory.get(0).shrink(1);
-        tileEntity.inventory.get(1).shrink(1);
-        tileEntity.inventory.get(2).shrink(1);
-        tileEntity.inventory.get(3).shrink(1);
-        this.onSlotChanged();
+        this.onCrafting(stack);
+        this.onTake(thePlayer, stack);
         return stack;
+    }
+
+    @Override
+    public ItemStack decrStackSize(int amount) {
+        if(this.getHasStack()) this.removeCount += Math.min(amount, this.getStack().getCount());
+        return super.decrStackSize(amount);
     }
 }

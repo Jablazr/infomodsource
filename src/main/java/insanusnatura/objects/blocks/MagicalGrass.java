@@ -16,16 +16,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IPlantable;
 
-public class DirtCustom extends Block implements IHasModel {
-
-    public DirtCustom(String name){
+public class MagicalGrass extends Block implements IHasModel {
+    public MagicalGrass(String name) {
         super(Material.GROUND);
         setRegistryName(name);
         setUnlocalizedName(name);
         setSoundType(SoundType.GROUND);
         setHarvestLevel("shovel", 1);
-        setHardness(0.5F);
-        setResistance(1F);
+        setHardness(0.6F);
+        setResistance(3F);
         setLightLevel(0F);
         setLightOpacity(255);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
@@ -33,6 +32,7 @@ public class DirtCustom extends Block implements IHasModel {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
+
     @Override
     public void registerModels() {
         Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");

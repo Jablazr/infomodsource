@@ -11,12 +11,10 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -26,7 +24,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class MysticalWorkbench extends Block implements IHasModel, ITileEntityProvider {
+public class MysticalWorkbench extends Block implements ITileEntityProvider, IHasModel {
     public MysticalWorkbench() {
         super(Material.WOOD);
         setUnlocalizedName("mysticalworkbench");
@@ -57,16 +55,6 @@ public class MysticalWorkbench extends Block implements IHasModel, ITileEntityPr
         TileEntityMysticalWorkbench tileEntity = (TileEntityMysticalWorkbench) worldIn.getTileEntity(pos);
         InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity);
         super.breakBlock(worldIn, pos, state);
-    }
-
-    @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        if(stack.hasDisplayName()) {
-            TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if(tileEntity instanceof TileEntityMysticalWorkbench) {
-                ((TileEntityMysticalWorkbench) tileEntity).setCustomName(stack.getDisplayName());
-            }
-        }
     }
 
     @Nullable

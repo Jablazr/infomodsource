@@ -1,25 +1,20 @@
 package insanusnatura.objects.tileentities;
 
 import insanusnatura.objects.recipes.MysticalWorkbenchRecipes;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
-public class TileEntityMysticalWorkbench extends TileEntity implements IInventory, ITickable {
-    public NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
+public class TileEntityMysticalWorkbench extends TileEntity implements IInventory {
+    private NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
     private String customName;
 
     @Override
@@ -47,7 +42,7 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
 
     @Override
     public ItemStack removeStackFromSlot(int index) {
-        return ItemStackHelper.getAndRemove(this.inventory, index);
+        return null;
     }
 
     @Override
@@ -81,7 +76,7 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
-        if(index == 4) return false;
+        if(index == 3) return false;
         else return true;
     }
 
@@ -117,36 +112,22 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
         this.customName = customName;
     }
 
-    public String getGuiID() {
+    public String getGUIID() {
         return "insanusnatura:mysticalworkbench";
     }
 
-    public boolean canCraft() {
-        if(MysticalWorkbenchRecipes.getInstance()
-                .getMysticalWorkbenchResult(this.inventory.get(0),
-                        this.inventory.get(1),
-                        this.inventory.get(2),
-                        this.inventory.get(3)) != ItemStack.EMPTY) {
-            return true;
-        } else {
-            this.inventory.set(4, ItemStack.EMPTY);
-            return false;
+    private boolean canCraft() {
+        for(int i = 0; i < this.inventory.size() - 1; i++) {
+            if(this.inventory.get(i).isEmpty()) return false;
         }
-    }
-
-    private void craft() {
-        if(this.inventory.get(4).isEmpty()) {
-            if(MysticalWorkbenchRecipes.getInstance()
-                    .getMysticalWorkbenchResult(this.inventory.get(0),
-                            this.inventory.get(1),
-                            this.inventory.get(2),
-                            this.inventory.get(3)) != ItemStack.EMPTY) {
-                this.inventory.set(4, MysticalWorkbenchRecipes.getInstance()
-                        .getMysticalWorkbenchResult(this.inventory.get(0),
-                                this.inventory.get(1),
-                                this.inventory.get(2),
-                                this.inventory.get(3)));
-            }
+        ItemStack result = MysticalWorkbenchRecipes.getInstance().getMysticalWorkbenchResult(this.inventory.get(0), this.inventory.get(1), this.inventory.get(2));
+        if(result.isEmpty()) return false;
+        else {
+            ItemStack output = this.inventory.get(3);
+            if(output.isEmpty()) return true;
+            if(!output.isItemEqual(result)) return false;
+            int res = output.getCount() + result.getCount();
+            return res <= getInventoryStackLimit() && res <= output.getMaxStackSize();
         }
     }
 
@@ -154,14 +135,5 @@ public class TileEntityMysticalWorkbench extends TileEntity implements IInventor
     @Override
     public ITextComponent getDisplayName() {
         return this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName());
-    }
-
-    @Override
-    public void update() {
-        if(!this.world.isRemote && !this.world.restoringBlockSnapshots) {
-            if(canCraft()) {
-                craft();
-            }
-        }
     }
 }
