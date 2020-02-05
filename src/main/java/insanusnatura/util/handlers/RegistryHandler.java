@@ -3,6 +3,7 @@ package insanusnatura.util.handlers;
 import insanusnatura.Main;
 import insanusnatura.init.BiomeInit;
 import insanusnatura.init.BlockInit;
+import insanusnatura.init.DimensionInit;
 import insanusnatura.init.ItemInit;
 import insanusnatura.util.interfaces.IHasModel;
 import insanusnatura.world.gen.MagicalTreeGen;
@@ -44,6 +45,7 @@ public class RegistryHandler {
     }
 
     public static void preInitRegistries() {
+        DimensionInit.registerDimensions();
 
     }
 
