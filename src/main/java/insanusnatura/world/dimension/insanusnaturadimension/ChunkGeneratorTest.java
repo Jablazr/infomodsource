@@ -3,10 +3,6 @@ package insanusnatura.world.dimension.insanusnaturadimension;
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
-
-import insanusnatura.init.BiomeInit;
-import insanusnatura.init.BlockInit;
-import insanusnatura.world.biomes.MagicalBiome;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -31,9 +27,9 @@ import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraft.world.gen.structure.StructureOceanMonument;
 import net.minecraft.world.gen.structure.WoodlandMansion;
 
-public class ChunkGeneratorInsanusNatura implements IChunkGenerator
+public class ChunkGeneratorTest implements IChunkGenerator
 {
-    protected static final IBlockState STONE = BlockInit.MAGICAL_STONE.getDefaultState();
+    protected static final IBlockState STONE = Blocks.STONE.getDefaultState();
     private final Random rand;
     private NoiseGeneratorOctaves minLimitPerlinNoise;
     private NoiseGeneratorOctaves maxLimitPerlinNoise;
@@ -57,13 +53,13 @@ public class ChunkGeneratorInsanusNatura implements IChunkGenerator
     private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
     private MapGenBase ravineGenerator = new MapGenRavine();
     private StructureOceanMonument oceanMonumentGenerator = new StructureOceanMonument();
-    private Biome biomesForGeneration;
+    private Biome[] biomesForGeneration;
     double[] mainNoiseRegion;
     double[] minLimitRegion;
     double[] maxLimitRegion;
     double[] depthRegion;
 
-    public ChunkGeneratorInsanusNatura(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions)
+    public ChunkGeneratorTest(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions)
     {
         {
             caveGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(caveGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE);
@@ -118,7 +114,7 @@ public class ChunkGeneratorInsanusNatura implements IChunkGenerator
 
     public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
     {
-        this.biomesForGeneration = BiomeInit.MAGIC;
+        this.biomesForGeneration = this.world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
         this.generateHeightmap(x * 4, 0, z * 4);
 
         for (int i = 0; i < 4; ++i)
@@ -164,11 +160,6 @@ public class ChunkGeneratorInsanusNatura implements IChunkGenerator
                                 if ((lvt_45_1_ += d16) > 0.0D)
                                 {
                                     primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, STONE);
-                                    primer.setBlockState(i * 4 + k2, i2 * 8 + j2+1, l * 4 + l2, MagicalBiome.DIRT);
-                                    primer.setBlockState(i * 4 + k2, i2 * 8 + j2+2, l * 4 + l2, MagicalBiome.DIRT);
-                                    primer.setBlockState(i * 4 + k2, i2 * 8 + j2+3, l * 4 + l2, MagicalBiome.DIRT);
-                                    primer.setBlockState(i * 4 + k2, i2 * 8 + j2+4, l * 4 + l2, MagicalBiome.DIRT);
-                                    primer.setBlockState(i * 4 + k2, i2 * 8 + j2+5, l * 4 + l2, MagicalBiome.GRASS);
                                 }
                                 else if (i2 * 8 + j2 < this.settings.seaLevel)
                                 {
@@ -214,7 +205,8 @@ public class ChunkGeneratorInsanusNatura implements IChunkGenerator
         this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
         ChunkPrimer chunkprimer = new ChunkPrimer();
         this.setBlocksInChunk(x, z, chunkprimer);
-        this.biomesForGeneration = BiomeInit.MAGIC;
+        this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
+        this.replaceBiomeBlocks(x, z, chunkprimer, this.biomesForGeneration);
 
         if (this.settings.useCaves)
         {
@@ -259,7 +251,7 @@ public class ChunkGeneratorInsanusNatura implements IChunkGenerator
 
         for (int i = 0; i < abyte.length; ++i)
         {
-            abyte[i] = (byte)Biome.getIdForBiome(BiomeInit.MAGIC);
+            abyte[i] = (byte)Biome.getIdForBiome(this.biomesForGeneration[i]);
         }
 
         chunk.generateSkylightMap();
@@ -285,13 +277,13 @@ public class ChunkGeneratorInsanusNatura implements IChunkGenerator
                 float f3 = 0.0F;
                 float f4 = 0.0F;
                 int i1 = 2;
-                Biome biome = BiomeInit.MAGIC;
+                Biome biome = this.biomesForGeneration[k + 2 + (l + 2) * 10];
 
                 for (int j1 = -2; j1 <= 2; ++j1)
                 {
                     for (int k1 = -2; k1 <= 2; ++k1)
                     {
-                        Biome biome1 = BiomeInit.MAGIC;
+                        Biome biome1 = this.biomesForGeneration[k + j1 + 2 + (l + k1 + 2) * 10];
                         float f5 = this.settings.biomeDepthOffSet + biome1.getBaseHeight() * this.settings.biomeDepthWeight;
                         float f6 = this.settings.biomeScaleOffset + biome1.getHeightVariation() * this.settings.biomeScaleWeight;
 

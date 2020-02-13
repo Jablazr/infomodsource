@@ -24,6 +24,8 @@ import java.util.Random;
 public class MagicalBiome extends Biome {
 
     protected static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
+    public static final IBlockState DIRT = BlockInit.MAGICAL_DIRT.getDefaultState();
+    public static final IBlockState GRASS = BlockInit.MAGICAL_GRASS.getDefaultState();
 
     protected static final WorldGenAbstractTree TREE = new WorldGenTreesMagical(false);
 
