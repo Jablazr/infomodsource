@@ -9,13 +9,13 @@ import javax.annotation.Nullable;
 public class DimensionInit
 {
     public static final String INSANUSNATURA_NAME = "insanusnatura";
-    public static final int INSANUSNATURA_DIM_ID = findFreeDimensionID();
+    public static final int INSANUSNATURA_DIM_ID = 66;
 
-    public static final DimensionType INSANUSNATURA_DIM_TYPE = DimensionType.register(INSANUSNATURA_NAME, "_"+INSANUSNATURA_NAME, INSANUSNATURA_DIM_ID, DimensionInsanusNatura.class, true);
+    public static final DimensionType INSANUSNATURA_DIM_TYPE = DimensionType.register(INSANUSNATURA_NAME, "_"+INSANUSNATURA_NAME, 66, DimensionInsanusNatura.class, true);
 
     public static void registerDimensions()
     {
-        DimensionManager.registerDimension(INSANUSNATURA_DIM_ID, INSANUSNATURA_DIM_TYPE);
+        DimensionManager.registerDimension(66, INSANUSNATURA_DIM_TYPE);
 
     }
 

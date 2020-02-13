@@ -2,6 +2,7 @@ package insanusnatura.objects.items;
 
 
 import insanusnatura.Main;
+import insanusnatura.commands.util.Teleport;
 import insanusnatura.init.DimensionInit;
 import insanusnatura.init.ItemInit;
 import insanusnatura.util.interfaces.IHasModel;
@@ -25,8 +26,11 @@ public class MysticalFlute extends Item implements IHasModel {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        playerIn.changeDimension(DimensionInit.INSANUSNATURA_DIM_ID);
-        return null;
+        if(!worldIn.isRemote){
+            Teleport.teleportToDimension(playerIn, 66, playerIn.getPosition().getX(),playerIn.getPosition().getY()+5,playerIn.getPosition().getZ());
+            return null;
+        }
+        else return null;
     }
 
     @Override

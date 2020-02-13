@@ -1,6 +1,7 @@
 package insanusnatura.util.handlers;
 
 import insanusnatura.Main;
+import insanusnatura.commands.CommandDimensionTeleport;
 import insanusnatura.init.BiomeInit;
 import insanusnatura.init.BlockInit;
 import insanusnatura.init.DimensionInit;
@@ -13,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -62,5 +64,10 @@ public class RegistryHandler {
         GameRegistry.registerWorldGenerator(new MagicalTreeGen(),0);
         BiomeInit.registerBiomes();
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(),0);
+    }
+
+    public static void serverRegistries(FMLServerStartingEvent event)
+    {
+        event.registerServerCommand(new CommandDimensionTeleport());
     }
 }

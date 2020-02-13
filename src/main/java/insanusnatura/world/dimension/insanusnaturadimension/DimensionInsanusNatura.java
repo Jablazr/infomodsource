@@ -25,7 +25,7 @@ public class DimensionInsanusNatura extends WorldProvider
 
     @Override
     public IChunkGenerator createChunkGenerator() {
-        return new ChunkGeneratorInsanusNatura(world,world.getSeed(),true);
+        return new ChunkGeneratorInsanusNatura(world);
     }
 
     @Override
