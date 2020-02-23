@@ -1,12 +1,8 @@
 package insanusnatura;
 
-import insanusnatura.objects.tabs.InsanusNaturaTab;
 import insanusnatura.proxy.CommonProxy;
 import insanusnatura.util.Reference;
 import insanusnatura.util.handlers.RegistryHandler;
-import net.minecraft.creativetab.CreativeTabs;
-
-import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -15,11 +11,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS)
+@Mod(   modid = Reference.MOD_ID,
+        name = Reference.NAME,
+        version = Reference.VERSION,
+        acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS)
 public class Main {
-
-    public static final InsanusNaturaTab tab = new InsanusNaturaTab();
-
     @Mod.Instance
     public static Main instance;
 

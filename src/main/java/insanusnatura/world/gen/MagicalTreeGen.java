@@ -1,9 +1,8 @@
 package insanusnatura.world.gen;
 
-import insanusnatura.world.biomes.MagicalBiome;
+import insanusnatura.world.BiomeMagic;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomePlains;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -25,7 +24,7 @@ public class MagicalTreeGen implements IWorldGenerator {
             case 1:
                 break;
             case 0:
-                runGenerator(MAGIC,world,random,chunkX,chunkZ,3,-1,0, MagicalBiome.class);
+                runGenerator(MAGIC,world,random,chunkX,chunkZ,3,-1,0, BiomeMagic.class);
                 break;
             case -1:
                 break;

@@ -1,8 +1,8 @@
 package insanusnatura.util.handlers;
 
-import insanusnatura.objects.containers.ContainerMysticalWorkbench;
-import insanusnatura.objects.gui.GuiMysticalWorkbench;
-import insanusnatura.objects.tileentities.TileEntityMysticalWorkbench;
+import insanusnatura.containers.ContainerMysticalWorkbench;
+import insanusnatura.client.gui.GuiMysticalWorkbench;
+import insanusnatura.tileentities.TileEntityMysticalWorkbench;
 import insanusnatura.util.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;

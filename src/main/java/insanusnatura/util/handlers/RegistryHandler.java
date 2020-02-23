@@ -2,10 +2,10 @@ package insanusnatura.util.handlers;
 
 import insanusnatura.Main;
 import insanusnatura.commands.CommandDimensionTeleport;
-import insanusnatura.init.BiomeInit;
-import insanusnatura.init.BlockInit;
-import insanusnatura.init.DimensionInit;
-import insanusnatura.init.ItemInit;
+import insanusnatura.init.ModBiomes;
+import insanusnatura.init.ModBlocks;
+import insanusnatura.init.ModWorldGen;
+import insanusnatura.init.ModItems;
 import insanusnatura.util.interfaces.IHasModel;
 import insanusnatura.world.gen.MagicalTreeGen;
 import insanusnatura.world.gen.WorldGenCustomOres;
@@ -25,30 +25,29 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RegistryHandler {
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
+        event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
     }
 
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
-        event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
+        event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
         TileEntityHandler.registerTileEntities();
     }
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onModelRegister(ModelRegistryEvent event) {
-        for(Item item : ItemInit.ITEMS)
+        for(Item item : ModItems.ITEMS)
             if(item instanceof IHasModel)
                 ((IHasModel)item).registerModels();
 
-        for(Block block : BlockInit.BLOCKS)
+        for(Block block : ModBlocks.BLOCKS)
             if(block instanceof IHasModel)
                ((IHasModel)block).registerModels();
     }
 
     public static void preInitRegistries() {
-        DimensionInit.registerDimensions();
-
+        ModWorldGen.registerDimensions();
     }
 
     public static void initRegistries() {
@@ -62,8 +61,8 @@ public class RegistryHandler {
     public static void otherRegistries()
     {
         GameRegistry.registerWorldGenerator(new MagicalTreeGen(),0);
-        BiomeInit.registerBiomes();
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(),0);
+        ModBiomes.registerBiomes();
     }
 
     public static void serverRegistries(FMLServerStartingEvent event)

@@ -1,7 +1,7 @@
 package insanusnatura.world.gen;
 
-import insanusnatura.init.BiomeInit;
-import insanusnatura.init.BlockInit;
+import insanusnatura.init.ModBiomes;
+import insanusnatura.init.ModBlocks;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -23,7 +23,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
     public WorldGenCustomOres()
     {
         //ore_magical = new WorldGenMinable(BlockInit.MAGICAL_BLOCK.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));
-        ore_shiny = new WorldGenMinable(BlockInit.SHINY_ORE.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));
+        ore_shiny = new WorldGenMinable(ModBlocks.SHINY_ORE.getDefaultState(), 9, BlockMatcher.forBlock(Blocks.STONE));
     }
 
     @Override
@@ -51,7 +51,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
             int z = chunkZ * 16 + rand.nextInt(16);
 
 
-            if(Biome.getIdForBiome(world.getBiome(new BlockPos(x,y,z)))==Biome.getIdForBiome(BiomeInit.MAGIC))
+            if(Biome.getIdForBiome(world.getBiome(new BlockPos(x,y,z)))==Biome.getIdForBiome(ModBiomes.MAGIC))
             {
                 gen.generate(world,rand,new BlockPos(x,y,z));
             }

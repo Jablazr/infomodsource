@@ -1,7 +1,7 @@
 package insanusnatura.world.gen;
 
 import com.google.common.base.Predicate;
-import insanusnatura.init.BlockInit;
+import insanusnatura.init.ModBlocks;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -226,7 +226,7 @@ public class BiomeDecoratorMagical extends BiomeDecorator {
         @Override
         public boolean apply (IBlockState parBlockState)
         {
-            if(parBlockState != null && parBlockState.getBlock() == BlockInit.MAGICAL_DIRT)
+            if(parBlockState != null && parBlockState.getBlock() == ModBlocks.MAGICAL_DIRT)
             {
                 return true;
             }

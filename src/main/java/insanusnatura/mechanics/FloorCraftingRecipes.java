@@ -1,6 +1,6 @@
 package insanusnatura.mechanics;
 
-import insanusnatura.init.ItemInit;
+import insanusnatura.init.ModItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -24,7 +24,7 @@ public class FloorCraftingRecipes {
     }
 
     public FloorCraftingRecipes() {
-        addFloorCraftingRecipe(new ItemStack(ItemInit.MUSICAL_PRINT), new ItemStack(ItemInit.BLANK_PRINT), new ItemStack(Item.getItemById(2256)));
+        addFloorCraftingRecipe(new ItemStack(ModItems.MUSICAL_PRINT), new ItemStack(ModItems.BLANK_PRINT), new ItemStack(Item.getItemById(2256)));
     }
 
     public ItemStack getFloorCraftingResult(ItemStack... itemStacks) {
