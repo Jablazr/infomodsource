@@ -25,4 +25,6 @@ public class GuiHandler implements IGuiHandler {
         if(ID == Reference.GUI_MYSTICAL_WORKBENCH) return new GuiMysticalWorkbench(player.inventory, (TileEntityMysticalWorkbench) world.getTileEntity(new BlockPos(x, y, z)));
         return null;
     }
+
+    public static void registerGuis() {}
 }

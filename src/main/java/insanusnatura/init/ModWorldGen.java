@@ -6,8 +6,7 @@ import net.minecraftforge.common.DimensionManager;
 
 import javax.annotation.Nullable;
 
-public class ModWorldGen
-{
+public class ModWorldGen {
     public static final String INSANUSNATURA_NAME = "insanusnatura";
     public static final int INSANUSNATURA_DIM_ID = findFreeDimensionID();
     public static final DimensionType INSANUSNATURA_DIM_TYPE = DimensionType.register(INSANUSNATURA_NAME,

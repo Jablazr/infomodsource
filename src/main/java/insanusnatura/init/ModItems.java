@@ -19,6 +19,6 @@ public class ModItems {
     public static MusicalPrint MUSICAL_PRINT = new MusicalPrint();
     public static MysticalDust MYSTICAL_DUST = new MysticalDust();
     public static MysticalFlute MYSTICAL_FLUTE = new MysticalFlute();
-
+    public static VineBracelet VINE_BRACELET = new VineBracelet();
 
 }

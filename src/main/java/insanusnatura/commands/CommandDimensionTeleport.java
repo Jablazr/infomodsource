@@ -13,23 +13,21 @@ import net.minecraft.util.text.TextFormatting;
 
 import java.util.List;
 
-public class CommandDimensionTeleport extends CommandBase
-{
-    private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID,"tp","tpdim","tpdimension","teleportdimension","teleport");
+public class CommandDimensionTeleport extends CommandBase {
+    private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID, "tpdim", "tpdimension", "teleportdimension");
 
     @Override
     public String getName() {
-        return "tpdimension";
+        return "teleportdimension";
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "tpdeimension <id>";
+        return "teleportdimension <id>";
     }
 
     @Override
-    public List<String> getAliases()
-    {
+    public List<String> getAliases() {
         return aliases;
     }
 
@@ -39,24 +37,21 @@ public class CommandDimensionTeleport extends CommandBase
     }
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
-    {
-        if(args.length < 1) return;
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+        if (args.length < 1) return;
 
         String s = args[0];
         int dimensionID;
 
-        try
-        {
-                dimensionID = Integer.parseInt(s);
-        }catch(NumberFormatException e)
-        {
-            sender.sendMessage(new TextComponentString(TextFormatting.RED+"Dimension ID Invalid"));
+        try {
+            dimensionID = Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            sender.sendMessage(new TextComponentString(TextFormatting.RED + "Dimension id is invalid"));
             return;
         }
 
-        if(sender instanceof EntityPlayer){
-            Teleport.teleportToDimension((EntityPlayer) sender, dimensionID, sender.getPosition().getX(),sender.getPosition().getY(),sender.getPosition().getZ());
+        if (sender instanceof EntityPlayer) {
+            Teleport.teleportToDimension((EntityPlayer) sender, dimensionID, sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ());
         }
     }
 

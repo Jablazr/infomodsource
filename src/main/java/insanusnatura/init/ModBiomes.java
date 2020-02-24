@@ -14,7 +14,7 @@ public class ModBiomes {
     public static void registerBiomes()
     {
         initBiome(MAGIC, "magic", 10, BiomeManager.BiomeType.WARM, Type.FOREST, Type.MAGICAL);
-        initBiome(MYSTICALPLAINS, "mysticalplains", 20, BiomeManager.BiomeType.WARM, Type.PLAINS, Type.MAGICAL);
+        initBiome(MYSTICALPLAINS, "mysticalplains", 15, BiomeManager.BiomeType.WARM, Type.PLAINS, Type.MAGICAL);
     }
 
     private static Biome initBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, Type... types)
