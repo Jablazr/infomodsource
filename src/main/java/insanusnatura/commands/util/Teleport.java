@@ -37,14 +37,11 @@ public class Teleport extends Teleporter {
 
             MinecraftServer server = player.getEntityWorld().getMinecraftServer();
             WorldServer worldServer = server.getWorld(dimension);
-            player.addExperienceLevel(0);
 
-            if (worldServer == null || worldServer.getMinecraftServer() == null) { //Dimension doesn't exist
-                throw new IllegalArgumentException("Dimension: " + dimension + " doesn't exist!");
-            }
+            if(worldServer == null || server == null) throw new IllegalArgumentException("Dimension: " + dimension + "doesn't exist!");
+            worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new Teleport(worldServer,x,y,z));
+            player.setPositionAndUpdate(x,y,z);
 
-            worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new Teleport(worldServer, x, y, z));
-            player.setPositionAndUpdate(x, y, z);
             if (oldDimension == 1) {
                 // For some reason teleporting out of the end does weird things. Compensate for that
                 player.setPositionAndUpdate(x, y, z);
